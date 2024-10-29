@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MayThi</title>
+</head>
+<body>
+    <h1>Bem-vindo ao Chat Privado</h1>
+    <div id="cometchat"></div>
+
+    <!-- Script do CometChat Widget -->
+    <script src="https://widget.cometchat.io/v2/cometchatwidget.js"></script>
+    <script>
+        CometChatWidget.init({
+            "appID": "266365cbba2461d0",
+            "appRegion": "us",
+            "authKey": "5af5e02f34466edd962c7e111a1fd299ad0ab0c5"
+        }).then(response => {
+            CometChatWidget.login({
+                "uid": "thiago"
+            }).then(response => {
+                CometChatWidget.launch({
+                    "widgetID": "2a9f33e3-9279-4bdb-9e70-12e7ab82ad25",
+                    "docked": "true",
+                    "alignment": "right",
+                    "height": "600px",
+                    "width": "400px",
+                    "defaultID": "may",
+                    "defaultType": "user"
+                });
+            }, error => {
+                console.log("Login failed with error:", error);
+            });
+        }, error => {
+            console.log("Initialization failed with error:", error);
+        });
+    </script>
+</body>
+</html>
